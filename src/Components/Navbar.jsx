@@ -5,7 +5,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar bg-[#8B0E17] text-[#f5f5f5] shadow-sm">
+    <div className="navbar px-2 md:px-9 bg-[#8B0E17] text-[#f5f5f5] shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -20,7 +20,7 @@ const Navbar = () => {
           </ul>
         </div>
         {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
-        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
+        <h1 className="text-xl md:text-2xl font-bold tracking-tight">
 
           <span className="text-[#e91e2f]">Food </span>
           <span className="text-[#eb404c]">Lovers</span>

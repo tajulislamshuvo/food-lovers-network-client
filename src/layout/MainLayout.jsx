@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <div className='flex flex-col min-h-screen'>
       <Navbar></Navbar>
-      <main className='flex-1 bg-gradient-to-br from-[#FFF8F8] to-[#FFDCDC] text-center'>
+      <main className='flex-1 bg-gradient-to-br from-[#FFF8F8] to-[#FFDCDC] '>
         <Outlet></Outlet>
       </main>
       <Footer></Footer>
