@@ -1,8 +1,8 @@
 import React from 'react';
-import slider1 from '../../public/slider-1.avif';
-import slider2 from '../../public/slider-2.jpg'
+import slider1 from '/slider-1.avif';
+import slider2 from '/slider-2.jpg'
 // import slider3 from '../../public/slider-3.jpg'
-import slider4 from '../../public/slider-4.webp'
+import slider4 from '/slider-4.webp'
 
 const Banner = () => {
   return (

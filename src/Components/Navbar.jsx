@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Provider/AuthContext';
+import { toast } from 'react-toastify';
+import { IoLogOut } from 'react-icons/io5';
 
 const Navbar = () => {
 
+  const { user, SignOut } = use(AuthContext);
+  const handleSignOut = () => {
+    SignOut()
+      .then(() => {
 
+        toast.success('Log out Successfull')
+      }).catch(err => {
+        console.log(err.message)
+      })
+  }
   return (
     <div className="navbar px-2 md:px-9 bg-[#8B0E17] text-[#f5f5f5] shadow-sm">
       <div className="navbar-start">
@@ -35,12 +47,67 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div className='flex gap-1.5'>
-          <Link to='/register' className="bg-[#C1121F] hover:bg-[#A50E1A] text-white font-semibold px-5 py-2 rounded-lg shadow-md">
-            Register
-          </Link>
-          <Link to='/login' className="bg-[#C1121F] hover:bg-[#A50E1A] text-white font-semibold px-5 py-2 rounded-lg shadow-md">
-            Login
-          </Link>
+          {
+            user ? (
+              // <button onClick={handleSignOut} className="bg-[#C1121F] hover:bg-[#A50E1A] text-white font-semibold px-5 py-2 rounded-lg shadow-md">
+              //   Log out
+              // </button>
+              <div className="dropdown dropdown-end z-50">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 border-2 border-gray-300 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      referrerPolicy="no-referrer"
+                      src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex="-1"
+                  className="menu  menu-sm dropdown-content bg-black rounded-box z-50 mt-3 w-52 p-2 shadow"
+                >
+                  <div className=" pb-3 border-b border-b-gray-200">
+                    <li className="text-sm font-bold">{user.displayName}</li>
+                    <li className="text-xs">{user.email}</li>
+                  </div>
+                  <li className="mt-3">
+                    <Link to={"/add-review"}>
+                      Add review
+                    </Link>
+                  </li>
+                  <li className="mt-3">
+                    <Link to={"/My-review"}>
+                      My review
+                    </Link>
+                  </li>
+
+
+                  <li>
+                    <button
+                      onClick={handleSignOut}
+                      className="bg-[#C1121F] hover:bg-[#A50E1A] text-white font-semibold px-5 py-2 rounded-lg shadow-md"
+                    >
+                      <IoLogOut /> Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            ) : (<>
+              <Link to='/register' className="bg-[#C1121F] hover:bg-[#A50E1A] text-white font-semibold px-5 py-2 rounded-lg shadow-md">
+                Register
+              </Link>
+              <Link to='/login' className="bg-[#C1121F] hover:bg-[#A50E1A] text-white font-semibold px-5 py-2 rounded-lg shadow-md">
+                Login
+              </Link>
+
+            </>
+
+            )
+          }
         </div>
       </div>
     </div>

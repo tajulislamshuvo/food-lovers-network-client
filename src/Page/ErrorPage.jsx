@@ -2,12 +2,12 @@ import React from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 // import error from '../../public/error.webp';
-import error2 from '../../public/error2.png'
+import error2 from '/error2.png'
 import { Link, useRouteError } from 'react-router';
 
 const ErrorPage = () => {
   const error = useRouteError();
-  console.log(error)
+
   return (
     <div className='flex flex-col min-h-screen items-center justify-center'>
       <Navbar></Navbar>
