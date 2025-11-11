@@ -10,7 +10,7 @@ const Register = () => {
   const navigate = useNavigate()
   const [nameError, setNameError] = useState("");
 
-  const { creatUser, setUser, signInWithGoogle } = use(AuthContext);
+  const { creatUser, setUser, signInWithGoogle, updateUser } = use(AuthContext);
   const [click, setClick] = useState(false)
 
   const handleClick = () => {
@@ -45,7 +45,7 @@ const Register = () => {
       setNameError("");
     };
 
-    // const photo = form.photo.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -64,14 +64,20 @@ const Register = () => {
     creatUser(email, password)
       .then(result => {
         const user1 = result.user;
-        setUser(user1);
+        updateUser({ displayName: name, photoURL: photo }).then(() => {
+          setUser({ ...user1, displayName: name, photoURL: photo });
+        }).catch((err) => {
+          console.log(err.message);
+          setUser(user1)
+
+        })
         console.log(user1)
         toast.success('Registered Successfully');
         navigate('/');
 
       }).catch((error) => {
         setNameError(error.code);
-        toast.error(error.message)
+        toast.error(error.message);
 
       })
 

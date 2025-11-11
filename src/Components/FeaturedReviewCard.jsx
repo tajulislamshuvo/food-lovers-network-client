@@ -3,7 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const FeaturedReviewCard = ({ model }) => {
-  console.log(model);
+  // console.log(model);
   const { _id, photo, food_name, restaurant_name, reviewer_name, rating, review_date } = model;
   return (
     <div>

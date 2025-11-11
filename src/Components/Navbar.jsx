@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
 import { toast } from 'react-toastify';
 import { IoLogOut } from 'react-icons/io5';
+import userImg from '/user.png'
 
 const Navbar = () => {
 
@@ -62,7 +63,8 @@ const Navbar = () => {
                     <img
                       alt="Tailwind CSS Navbar component"
                       referrerPolicy="no-referrer"
-                      src={user.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                      className='w-10 h-10'
+                      src={user.photoURL || userImg}
                     />
                   </div>
                 </div>

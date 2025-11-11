@@ -2,7 +2,7 @@ import React, { use, useRef, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { IoMdEyeOff } from 'react-icons/io';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
-import { Link, Navigate, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -11,7 +11,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const emailRef = useRef(null);
 
-
+  const location = useLocation();
   const { setUser, signInUser, signInWithGoogle, handleForgetPass } = use(AuthContext);
   const [click, setClick] = useState(false)
 

@@ -7,6 +7,8 @@ import ErrorPage from "../Page/ErrorPage";
 import Loading from "../Components/Loading";
 import AllReview from "../Page/AllReview";
 import ReviewDetailes from "../Page/ReviewDetailes";
+import PrivateRoute from "./PrivateRoute";
+import AddReview from "../Page/AddReview";
 
 
 export const router = createBrowserRouter([
@@ -34,8 +36,12 @@ export const router = createBrowserRouter([
         loader: () => fetch('http://localhost:3000/review')
       },
       {
+        path: '/add-review',
+        element: <AddReview></AddReview>
+      },
+      {
         path: '/review-detailes/:id',
-        element: <ReviewDetailes></ReviewDetailes>
+        element: <PrivateRoute><ReviewDetailes></ReviewDetailes></PrivateRoute>
       }
     ]
   },

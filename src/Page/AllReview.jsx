@@ -1,19 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import FeaturedReviewCard from '../Components/FeaturedReviewCard';
+import Loading from '../Components/Loading';
 
 const AllReview = () => {
   const data = useLoaderData();
   const [models, setModels] = useState(data)
   const [loading, setLoading] = useState(false);
+  const [value, setValue] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
     const search_text = e.target.search.value;
-    console.log(search_text)
+    console.log(search_text);
+    setLoading(true)
+    fetch(`http://localhost:3000/search?search=${search_text}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setModels(data);
+        setLoading(false)
+      })
   }
+  // if (models.length < 1) {
+  //   setValue(true)
+  // }
+
+  useEffect(() => {
+    if (models.length < 1) {
+      setValue(true);
+    } else {
+      setValue(false);
+    }
+  }, [models]);
   return (
-    <div>
+    <div className='p-3.5'>
       <h1 className='text-3xl font-bold text-center mt-5 text-[#8B0E17]'>All Reviews</h1>
       <p className='font-bold text-md text-center text-gray-600'>Explore all reviews</p>
 
@@ -39,9 +60,14 @@ const AllReview = () => {
         </label>
         <button className="btn bg-[#8B0E17] text-white font-medium hover:bg-[#6E0B12]  rounded-full">{loading ? "Searching...." : "Search"}</button>
       </form>
+
+      {/* {
+        value ? <p>Could not find any data</p> : <p></p>
+      } */}
+      <p className='text-3xl text-center font-bold flex justify-center items-center text-[#8B0E17]'>{value ? 'Not found any reviews in this item' : ''}</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-10 mx-auto w-11/12">
 
-        {data.map((model) => <FeaturedReviewCard key={model._id} model={model}></FeaturedReviewCard>)}
+        {models.map((model) => <FeaturedReviewCard key={model._id} model={model}></FeaturedReviewCard>)}
       </div>
     </div>
   );
