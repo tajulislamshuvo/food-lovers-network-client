@@ -48,11 +48,18 @@ const Register = () => {
     // const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+
     const regExp = /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])\S+$/;
     if (!regExp.test(password)) {
       toast.error('Password must be at least 8 characters long and include one uppercase letter, one lowercase letter, one number, and one special character. No spaces allowed.');
       return;
     }
+    const confirmPassword = form.cPassword.value;
+    if (password !== confirmPassword) {
+      toast.error('Confirm password is not matched');
+      return
+    }
+
 
     creatUser(email, password)
       .then(result => {
@@ -123,6 +130,23 @@ const Register = () => {
                 type={click ? 'text' : 'password'}
                 className="input"
                 placeholder="Password"
+                required
+              />
+              <div onClick={handleClick} className='absolute top-4 right-7 cursor-pointer'>
+                {
+                  click ? <IoMdEyeOff size={15} /> : <MdOutlineRemoveRedEye size={15}></MdOutlineRemoveRedEye>
+                }
+
+              </div>
+            </div>
+            <label className="label">Confirm password</label>
+
+            <div className='relative'>
+              <input
+                name="cPassword"
+                type={click ? 'text' : 'password'}
+                className="input"
+                placeholder="Confirm password"
                 required
               />
               <div onClick={handleClick} className='absolute top-4 right-7 cursor-pointer'>
