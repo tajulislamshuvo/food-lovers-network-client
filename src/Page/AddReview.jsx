@@ -2,11 +2,20 @@ import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthContext';
 
 const AddReview = () => {
-  const { user, loading } = use(AuthContext)
+  const { user } = use(AuthContext)
   const handleReviewSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
+    const food = e.target.foodName.value;
+    const foodImage = e.target.foodImage.value;
+    const restaurentName = e.target.restaurentName.value;
+    const restaurentLocation = e.target.restaurentLocation.value;
+    const rating = e.target.rating.value;
+    const reviewText = e.target.reviewText.value;
+    console.log(name, email, food, foodImage, restaurentName, restaurentLocation, rating, reviewText);
+
+
 
   }
 
@@ -28,24 +37,30 @@ const AddReview = () => {
                 {/* food */}
                 <label className="label">Food Name</label>
 
-                <input type="text" className="input" placeholder='Food name' name='food-name' />
+                <input type="text" className="input" placeholder='Food name' name='foodName' />
+
+                {/* food image */}
+                <label className="label">Food Image</label>
+
+                <input type="text" className="input" placeholder='Food Image URL' name='foodImage' />
+
 
                 {/* restaurent name */}
                 <label className="label">Restaurent Name</label>
-                <input type="text" className="input" placeholder='Restaurent Name' name='restaurent-name' />
+                <input type="text" className="input" placeholder='Restaurent Name' name='restaurentName' />
 
                 {/* restaurent location */}
                 <label className="label">Restaurent Location</label>
-                <input type="text" className="input" placeholder='Restaurent Location' name='restaurent-location' />
+                <input type="text" className="input" placeholder='Restaurent Location' name='restaurentLocation' />
 
 
                 {/* rating */}
                 <label className="label">Rating</label>
-                <input type="number" className="input" placeholder='Reviewer Name' name='reviewer-name' />
+                <input type="number" className="input" placeholder='Rating' name='rating' />
 
                 {/* review text */}
                 <label className="label">Review Detailes</label>
-                <textarea name="review-text" placeholder='Describe Your Review' rows={3} className='p-1.5 border rounded-md border-gray-400'></textarea>
+                <textarea type='text' name="reviewText" placeholder='Describe Your Review' rows={3} className='p-1.5 border rounded-md border-gray-400'></textarea>
 
 
                 <button className="btn btn-neutral mt-4 bg-[#b93b44] hover:bg-[#A50E1A] text-white font-semibold">Place your review</button>
