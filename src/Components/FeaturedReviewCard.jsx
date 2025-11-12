@@ -1,12 +1,14 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router';
+import { motion } from "framer-motion";
 
-const FeaturedReviewCard = ({ model }) => {
+const FeaturedReviewCard = ({ model, index }) => {
   // console.log(model);
   const { _id, photo, food_name, restaurant_name, reviewer_name, rating, review_date } = model;
   return (
-    <div>
+    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.2, duration: 0.6, ease: "easeOut", }}>
       <div className="max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-[#FFD1D1] hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
         {/* Image */}
         <div className="w-full h-52 overflow-hidden">
@@ -43,7 +45,7 @@ const FeaturedReviewCard = ({ model }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

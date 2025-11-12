@@ -67,7 +67,7 @@ const AllReview = () => {
       <p className='text-3xl text-center font-bold flex justify-center items-center text-[#8B0E17]'>{value ? 'Not found any reviews in this item' : ''}</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-10 mx-auto w-11/12">
 
-        {models.map((model) => <FeaturedReviewCard key={model._id} model={model}></FeaturedReviewCard>)}
+        {models.map((model, index) => <FeaturedReviewCard key={model._id} model={model} index={index}></FeaturedReviewCard>)}
       </div>
     </div>
   );
