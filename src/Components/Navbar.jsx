@@ -50,9 +50,6 @@ const Navbar = () => {
         <div className='flex gap-1.5'>
           {
             user ? (
-              // <button onClick={handleSignOut} className="bg-[#C1121F] hover:bg-[#A50E1A] text-white font-semibold px-5 py-2 rounded-lg shadow-md">
-              //   Log out
-              // </button>
               <div className="dropdown dropdown-end z-50">
                 <div
                   tabIndex={0}
@@ -82,7 +79,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="mt-3">
-                    <Link to={"/My-review"}>
+                    <Link to={"/my-review"}>
                       My review
                     </Link>
                   </li>
