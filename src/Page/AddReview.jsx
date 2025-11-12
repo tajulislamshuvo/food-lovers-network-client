@@ -1,8 +1,10 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../Provider/AuthContext';
+import { toast } from 'react-toastify';
 
 const AddReview = () => {
   const { user } = use(AuthContext)
+  const [review1, setReview1] = useState([]);
   const handleReviewSubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -15,6 +17,46 @@ const AddReview = () => {
     const reviewText = e.target.reviewText.value;
     console.log(name, email, food, foodImage, restaurentName, restaurentLocation, rating, reviewText);
 
+    const newReview = {
+      photo: foodImage,
+      food_name: food,
+      restaurant_name: restaurentName,
+      restaurant_location: restaurentLocation,
+      reviewer_name: name,
+      rating: rating,
+      review_text: reviewText,
+      email: email,
+      review_date: new Date(),
+
+
+
+
+    }
+
+    fetch('http://localhost:3000/review', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newReview)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          toast.success("Successfully added!");
+          newReview._id = data.insertedId;
+          const newReviews = [...review1, newReview];
+          newReviews.sort((a, b) => b.review_date - a.review_date);
+          setReview1(newReviews)
+
+
+        }
+
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
 
   }
