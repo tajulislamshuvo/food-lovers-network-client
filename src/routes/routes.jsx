@@ -20,11 +20,12 @@ export const router = createBrowserRouter([
     path: "/",
     element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
+    hydrateFallbackElement: <Loading></Loading>,
     children: [
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:3000/featuredReview'),
+        loader: () => fetch('https://food-lover-network-api-server.vercel.app/featuredReview'),
       },
       {
         path: '/login',
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
       {
         path: '/all-review',
         element: <AllReview></AllReview>,
-        loader: () => fetch('http://localhost:3000/review')
+        loader: () => fetch('https://food-lover-network-api-server.vercel.app/review')
       }, {
         path: '/blog',
         element: <Blog></Blog>
@@ -57,7 +58,7 @@ export const router = createBrowserRouter([
       {
         path: '/edit-review/:id',
         element: <PrivateRoute><EditReview></EditReview></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:3000/review/${params.id}`),
+        loader: ({ params }) => fetch(`https://food-lover-network-api-server.vercel.app/review/${params.id}`),
       },
       {
         path: '/review-detailes/:id',

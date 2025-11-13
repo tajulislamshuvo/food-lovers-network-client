@@ -7,7 +7,7 @@ const EditReview = () => {
   const data = useLoaderData();
   const navigate = useNavigate();
   const { user } = use(AuthContext)
-  console.log(data)
+  // console.log(data)
   const handeEditReview = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -18,7 +18,7 @@ const EditReview = () => {
     const restaurentLocation = e.target.restaurentLocation.value;
     const rating = e.target.rating.value;
     const reviewText = e.target.reviewText.value;
-    console.log(name, email, food, foodImage, restaurentName, restaurentLocation, rating, reviewText);
+    // console.log(name, email, food, foodImage, restaurentName, restaurentLocation, rating, reviewText);
 
 
     const editedReview = {
@@ -33,7 +33,7 @@ const EditReview = () => {
       review_date: new Date(),
     }
 
-    fetch(`http://localhost:3000/review/${data._id}`, {
+    fetch(`https://food-lover-network-api-server.vercel.app/review/${data._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const EditReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         toast.success("Successfully edited!");
         navigate('/all-review');
       })

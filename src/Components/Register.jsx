@@ -67,11 +67,11 @@ const Register = () => {
         updateUser({ displayName: name, photoURL: photo }).then(() => {
           setUser({ ...user1, displayName: name, photoURL: photo });
         }).catch((err) => {
-          console.log(err.message);
+          // console.log(err.message);
           setUser(user1)
 
         })
-        console.log(user1)
+        // console.log(user1)
         toast.success('Registered Successfully');
         navigate('/');
 

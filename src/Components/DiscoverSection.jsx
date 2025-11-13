@@ -9,12 +9,10 @@ const DiscoverSection = () => {
           Discover Local Food Stories
         </h2>
 
-        {/* Subtitle */}
         <p className="text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed">
           Every bite has a story. Explore hidden gems, honest reviews, and heartwarming food moments shared by our community. Let’s celebrate the flavors that make every neighborhood unique.
         </p>
 
-        {/* 3 Feature Boxes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white border border-[#FFD1D1] rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
             <h3 className="text-lg font-semibold text-[#8B0E17] mb-2">

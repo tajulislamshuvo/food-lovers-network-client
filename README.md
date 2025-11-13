@@ -1,16 +1,97 @@
-# React + Vite
+🍴 Local Food Lovers Network
+🌐 Live Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://food-lovers-network542.netlify.app/
 
-Currently, two official plugins are available:
+🧾 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Local Food Lovers Network is a community-driven platform where food enthusiasts can explore, review, and celebrate local flavors.
+Users can share their food experiences, post reviews with photos, and discover what others are enjoying nearby — from hidden restaurants to home-cooked meals.
 
-## React Compiler
+It’s more than a review site — it’s a space to connect through taste, story, and culture.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🚀 Features
 
-## Expanding the ESLint configuration
+✅ User Authentication — Login & Signup using Email or Google
+✅ Add and Manage Reviews — Users can post reviews with food photos, edit or delete them anytime
+✅ Responsive Design — Fully mobile-friendly with Tailwind CSS
+✅ Secure Backend API — Built with Express and MongoDB for efficient data management
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🧑‍💻 Tech Stack
+Frontend
+
+React.js
+
+React Router
+
+Tailwind CSS
+
+DaisyUI (for components)
+
+Framer Motion (for animations)
+
+React Icons
+
+Backend
+
+Node.js
+
+Express.js
+
+MongoDB (with Mongoose or native driver)
+
+dotenv (for environment variables)
+
+CORS enabled
+
+Authentication
+
+Firebase Authentication (Email/Password & Google Login)
+
+📦 NPM Packages Used
+npm install react-router-dom tailwindcss daisyui framer-motion react-icons firebase
+npm install express cors dotenv mongodb
+
+
+🗄️ Folder Structure
+Local-Food-Lovers-Network/
+│
+├── client/                   # React frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── hooks/
+│   │   ├── provider/
+│   │   └── App.jsx
+│   └── tailwind.config.js
+│
+├── server/                   # Express backend
+│   ├── index.js
+│   ├── routes/
+│   ├── models/
+│   └── .env
+│
+└── README.md
+
+🧠 How It Works
+
+Users can register or sign in using Firebase.
+
+Authenticated users can post, edit, and delete reviews.
+
+Reviews are stored in MongoDB.
+
+Homepage highlights 5-star rated reviews.
+
+Blog and Discover sections inspire users to engage with the community.
+
+📲 Responsive Preview
+
+✅ Mobile — Fully collapsible layout
+✅ Tablet — Two-column display for cards
+✅ Desktop — Spacious grid-based layout
+
+🙌 Credits
+
+Designed and developed with ❤️ by Tajul Islam Shuvo
+Inspiration: local flavors, street food stories, and community-driven sharing.

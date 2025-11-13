@@ -8,7 +8,7 @@ const MyFavourite = () => {
   const [favourite, setFavourite] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/favourites/${user?.email}`)
+    fetch(`https://food-lover-network-api-server.vercel.app/favourites/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setFavourite(data);

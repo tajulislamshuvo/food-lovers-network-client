@@ -38,10 +38,10 @@ const Login = () => {
     const email = emailRef.current.value;
     handleForgetPass(email)
       .then(res => {
-        console.log(res)
+        // console.log(res)
         toast('Check Your Email');
       }).catch((error) => {
-        console.log(error);
+        // console.log(error);
         toast.error(error.message)
       })
   }

@@ -12,10 +12,10 @@ const MyReview = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/my-review?email=${user?.email}`)
+      fetch(`https://food-lover-network-api-server.vercel.app/my-review?email=${user?.email}`)
         .then(res => res.json())
         .then(data => {
-          console.log(data);
+          // console.log(data);
           setMyReview(data);
         })
     }
@@ -35,12 +35,12 @@ const MyReview = () => {
       if (result.isConfirmed) {
 
         console.log('Now delete')
-        fetch(`http://localhost:3000/review/${_id}`, {
+        fetch(`https://food-lover-network-api-server.vercel.app/review/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())
           .then(data => {
-            console.log('After delete', data)
+            // console.log('After delete', data)
             navigate('/all-review')
             if (data.deletedCount) {
               Swal.fire({

@@ -14,7 +14,7 @@ const Navbar = () => {
 
         toast.success('Log out Successfull')
       }).catch(err => {
-        console.log(err.message)
+        // console.log(err.message)
       })
   }
   return (
@@ -63,7 +63,7 @@ const Navbar = () => {
                     <img
                       alt="Tailwind CSS Navbar component"
                       referrerPolicy="no-referrer"
-                      className='w-10 h-10'
+                      className='w-9 h-9'
                       src={user.photoURL || userImg}
                     />
                   </div>

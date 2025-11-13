@@ -17,7 +17,7 @@ const AddReview = () => {
     const restaurentLocation = e.target.restaurentLocation.value;
     const rating = e.target.rating.value;
     const reviewText = e.target.reviewText.value;
-    console.log(name, email, food, foodImage, restaurentName, restaurentLocation, rating, reviewText);
+    // console.log(name, email, food, foodImage, restaurentName, restaurentLocation, rating, reviewText);
 
     const newReview = {
       photo: foodImage,
@@ -35,7 +35,7 @@ const AddReview = () => {
 
     }
 
-    fetch('http://localhost:3000/review', {
+    fetch('https://food-lover-network-api-server.vercel.app/review', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ const AddReview = () => {
           navigate('/all-review')
         }
 
-        console.log(data)
+        // console.log(data)
       })
       .catch(err => {
         console.log(err)

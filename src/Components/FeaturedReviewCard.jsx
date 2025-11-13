@@ -10,7 +10,7 @@ const FeaturedReviewCard = ({ model, index }) => {
   const { _id, photo, food_name, restaurant_name, reviewer_name, rating, review_date } = model;
   const { user } = use(AuthContext)
   const handleFavourite = () => {
-    fetch(`http://localhost:3000/favourites`, {
+    fetch(`https://food-lover-network-api-server.vercel.app/favourites`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"

@@ -9,10 +9,10 @@ const ReviewDetailes = () => {
   const [model, setModel] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3000/review/${id}`)
+    fetch(`https://food-lover-network-api-server.vercel.app/review/${id}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setModel(data);
         setLoading(false)
       })

@@ -14,10 +14,10 @@ const AllReview = () => {
     const search_text = e.target.search.value;
     console.log(search_text);
     setLoading(true)
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(`https://food-lover-network-api-server.vercel.app/search?search=${search_text}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setModels(data);
         setLoading(false)
       })
@@ -33,6 +33,10 @@ const AllReview = () => {
       setValue(false);
     }
   }, [models]);
+
+  if (loading) {
+    return <Loading></Loading>
+  }
   return (
     <div className='p-3.5'>
       <h1 className='text-3xl font-bold text-center mt-5 text-[#8B0E17]'>All Reviews</h1>

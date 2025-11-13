@@ -6,7 +6,7 @@ import DiscoverSection from './DiscoverSection';
 
 const Home = () => {
   const data = useLoaderData();
-  console.log(data)
+  // console.log(data)
   return (
     <div>
       <Banner></Banner>
