@@ -1,12 +1,14 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthContext';
 import Swal from 'sweetalert2';
+import { Link, useNavigate } from 'react-router';
+import Loading from '../Components/Loading';
 
 const MyReview = () => {
   const { user } = use(AuthContext);
   const [myReview, setMyReview] = useState([]);
   const [value, setValue] = useState(false);
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user?.email) {
@@ -39,6 +41,7 @@ const MyReview = () => {
           .then(res => res.json())
           .then(data => {
             console.log('After delete', data)
+            navigate('/all-review')
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
@@ -70,6 +73,7 @@ const MyReview = () => {
       <h2 className='text-3xl font-bold text-center mt-5 mb-3 text-[#8B0E17]'>My Reviews</h2>
 
       <p className='text-xl mt-4 text-center font-bold flex justify-center items-center text-[#8B0E17]'>{value ? 'You do not add any review' : ''}</p>
+
 
 
       <div className="hidden md:block bg-white rounded-2xl shadow-md   overflow-hidden">
@@ -109,9 +113,9 @@ const MyReview = () => {
                   {new Date(review.review_date).toLocaleDateString()}
                 </td>
                 <td className="py-3 px-4">
-                  <button className="px-3 py-1 border border-[#8B0E17] text-[#8B0E17] rounded-lg hover:bg-[#8B0E17] hover:text-white transition-all duration-300">
+                  <Link to={`/edit-review/${review._id}`} className="px-3 py-1 border border-[#8B0E17] text-[#8B0E17] rounded-lg hover:bg-[#8B0E17] hover:text-white transition-all duration-300">
                     Edit
-                  </button>
+                  </Link>
                 </td>
                 <td className="py-3 px-4">
                   <button onClick={() => handleReviewDelete(review._id)} className="px-3 py-1 border border-[#8B0E17] text-[#8B0E17] rounded-lg hover:bg-[#8B0E17] hover:text-white transition-all duration-300">
@@ -148,9 +152,9 @@ const MyReview = () => {
             </div>
 
             <div className="flex justify-end gap-2">
-              <button className="px-3 py-1 text-sm border border-[#8B0E17] text-[#8B0E17] rounded-lg hover:bg-[#8B0E17] hover:text-white transition-all duration-300">
+              <Link to={`/edit-review/${review._id}`} className="px-3 py-1 text-sm border border-[#8B0E17] text-[#8B0E17] rounded-lg hover:bg-[#8B0E17] hover:text-white transition-all duration-300">
                 Edit
-              </button>
+              </Link>
               <button onClick={() => handleReviewDelete(review._id)} className="px-3 py-1 text-sm border border-[#8B0E17] text-[#8B0E17] rounded-lg hover:bg-[#8B0E17] hover:text-white transition-all duration-300">
                 Delete
               </button>
@@ -158,7 +162,7 @@ const MyReview = () => {
           </div>
         ))}
       </div>
-    </div>
+    </div >
   );
 };
 
