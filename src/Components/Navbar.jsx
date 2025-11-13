@@ -86,6 +86,11 @@ const Navbar = () => {
                       My review
                     </Link>
                   </li>
+                  <li className="mt-3">
+                    <Link to={"/my-favourite"}>
+                      My favourite
+                    </Link>
+                  </li>
 
 
                   <li>

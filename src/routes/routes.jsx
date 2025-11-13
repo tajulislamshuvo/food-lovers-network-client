@@ -12,6 +12,7 @@ import AddReview from "../Page/AddReview";
 import MyReview from "../Page/MyReview";
 import EditReview from "../Page/EditReview";
 import Blog from "../Page/BlogPage";
+import MyFavourite from "../Page/MyFavourite";
 
 
 export const router = createBrowserRouter([
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
       {
         path: '/my-review',
         element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
+      },
+      {
+        path: '/my-favourite',
+        element: <PrivateRoute><MyFavourite></MyFavourite></PrivateRoute>
       },
       {
         path: '/edit-review/:id',

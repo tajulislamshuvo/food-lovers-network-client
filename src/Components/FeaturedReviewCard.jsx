@@ -1,11 +1,34 @@
-import React from 'react';
-import { FaStar } from 'react-icons/fa';
+import React, { use } from 'react';
+import { FaHeart, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router';
 import { motion } from "framer-motion";
+import { AuthContext } from '../Provider/AuthContext';
+import { toast } from 'react-toastify';
 
 const FeaturedReviewCard = ({ model, index }) => {
   // console.log(model);
   const { _id, photo, food_name, restaurant_name, reviewer_name, rating, review_date } = model;
+  const { user } = use(AuthContext)
+  const handleFavourite = () => {
+    fetch(`http://localhost:3000/favourites`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: user.email,
+        reviewId: _id,
+        foodName: food_name,
+        foodImg: photo,
+        reviewerName: reviewer_name
+      })
+    }).then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          toast("Add to favourite")
+        }
+      })
+  }
   return (
     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.2, duration: 0.6, ease: "easeOut", }}>
@@ -40,9 +63,12 @@ const FeaturedReviewCard = ({ model, index }) => {
           <p className="text-sm text-gray-500 mb-4">Review Date: {new Date(review_date).toLocaleDateString()}</p>
 
           {/* Button */}
-          <Link to={`/review-detailes/${_id}`} className="w-full py-2 px-3 mt-2 bg-[#8B0E17] text-white rounded-lg font-medium hover:bg-[#6E0B12] transition-colors duration-300">
-            View Details
-          </Link>
+          <div className='flex justify-between items-center'>
+            <Link to={`/review-detailes/${_id}`} className="w-35 py-2 px-3 mt-2 btn bg-[#8B0E17] text-white rounded-lg font-medium hover:bg-[#6E0B12] transition-colors duration-300">
+              View Details
+            </Link>
+            <button onClick={handleFavourite}><FaHeart></FaHeart></button>
+          </div>
         </div>
       </div>
     </motion.div>
