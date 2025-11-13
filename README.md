@@ -53,25 +53,6 @@ npm install react-router-dom tailwindcss daisyui framer-motion react-icons fireb
 npm install express cors dotenv mongodb
 
 
-🗄️ Folder Structure
-Local-Food-Lovers-Network/
-│
-├── client/                   # React frontend
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── hooks/
-│   │   ├── provider/
-│   │   └── App.jsx
-│   └── tailwind.config.js
-│
-├── server/                   # Express backend
-│   ├── index.js
-│   ├── routes/
-│   ├── models/
-│   └── .env
-│
-└── README.md
 
 🧠 How It Works
 
@@ -94,4 +75,3 @@ Blog and Discover sections inspire users to engage with the community.
 🙌 Credits
 
 Designed and developed with ❤️ by Tajul Islam Shuvo
-Inspiration: local flavors, street food stories, and community-driven sharing.
