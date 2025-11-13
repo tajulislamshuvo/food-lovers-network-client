@@ -79,16 +79,18 @@ const MyReview = () => {
       <div className="hidden md:block bg-white rounded-2xl shadow-md   overflow-hidden">
         <table className="min-w-full text-sm">
 
-          {/* <thead className="bg-[#8B0E17] text-white text-left">
-            <tr>
-              <th className="py-3 px-4">Food Image</th>
-              <th className="py-3 px-4">Food Name</th>
-              <th className="py-3 px-4">Restaurant Name</th>
-              <th className="py-3 px-4">Post Date</th>
-              <th className="py-3 px-4">Edit</th>
-              <th className="py-3 px-4">Action</th>
-            </tr>
-          </thead> */}
+          <thead className="bg-[#8B0E17] text-white text-left">
+            {
+              value ? '' : <tr>
+                <th className="py-3 px-4">Food Image</th>
+                <th className="py-3 px-4">Food Name</th>
+                <th className="py-3 px-4">Restaurant Name</th>
+                <th className="py-3 px-4">Post Date</th>
+                <th className="py-3 px-4">Edit</th>
+                <th className="py-3 px-4">Action</th>
+              </tr>
+            }
+          </thead>
 
           <tbody>
             {myReview.map((review) => (
