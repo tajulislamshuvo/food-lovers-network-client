@@ -3,6 +3,7 @@ import slider1 from '/slider-1.avif';
 import slider2 from '/slider-2.jpg'
 // import slider3 from '../../public/slider-3.jpg'
 import slider4 from '/slider-4.webp'
+import { Link } from 'react-router';
 
 const Banner = () => {
   return (
@@ -21,9 +22,9 @@ const Banner = () => {
           <p className="mt-3 text-lg text-white/90 max-w-xl">
             Share reviews, photos, and hidden gems from your neighborhood.
           </p>
-          <button className="mt-6 btn bg-[#c1121f] hover:bg-[#a10e19] text-white border-none shadow-none">
+          <Link to='/blog' className="mt-6 btn bg-[#c1121f] hover:bg-[#a10e19] text-white border-none shadow-none">
             Explore Now
-          </button>
+          </Link>
         </div>
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
           <a href="#slide4" className="btn btn-circle">❮</a>
@@ -43,9 +44,9 @@ const Banner = () => {
           </h2>
           <p className="mt-3 text-lg text-white/90 max-w-xl">
             Post reviews, photos, and hidden gems. Let the world taste what you love.          </p>
-          <button className="mt-6 btn bg-[#c1121f] hover:bg-[#a10e19] text-white border-none shadow-none">
+          <Link to='/blog' className="mt-6 btn bg-[#c1121f] hover:bg-[#a10e19] text-white border-none shadow-none">
             Explore Now
-          </button>
+          </Link>
         </div>
 
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
@@ -65,9 +66,9 @@ const Banner = () => {
             Join the Local Food Revolution          </h2>
           <p className="mt-3 text-lg text-white/90 max-w-xl">
             Connect with foodies, discover street eats, and celebrate home-cooked magic.          </p>
-          <button className="mt-6 btn bg-[#c1121f] hover:bg-[#a10e19] text-white border-none shadow-none">
+          <Link to='/blog' className="mt-6 btn bg-[#c1121f] hover:bg-[#a10e19] text-white border-none shadow-none">
             Explore Now
-          </button>
+          </Link>
         </div>
 
 

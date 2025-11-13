@@ -30,6 +30,7 @@ const Navbar = () => {
             <li className='font-bold '><NavLink to='/'>Home</NavLink></li>
 
             <li className='font-bold'><NavLink to='/all-review'>All Reviews</NavLink></li>
+            <li className='font-bold'><NavLink to='/blog'>Blog</NavLink></li>
           </ul>
         </div>
         {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
@@ -44,6 +45,8 @@ const Navbar = () => {
           <li className='font-bold text-[#ebc2c4]'><NavLink to='/'>Home</NavLink></li>
 
           <li className='font-bold text-[#ebc2c4]'><NavLink to='all-review'>All Reviews</NavLink></li>
+          <li className='font-bold text-[#ebc2c4]'><NavLink to='/blog'>Blog</NavLink></li>
+
         </ul>
       </div>
       <div className="navbar-end">

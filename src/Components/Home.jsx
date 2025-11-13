@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import { Link, useLoaderData } from 'react-router';
 import FeaturedReviewCard from './FeaturedReviewCard';
+import DiscoverSection from './DiscoverSection';
 
 const Home = () => {
   const data = useLoaderData();
@@ -16,6 +17,8 @@ const Home = () => {
       </div>
 
       <Link to='/all-review' className=' text-center mb-5 flex justify-center items-center w-[150px] mx-auto bg-[#C1121F] hover:bg-[#A50E1A] text-white font-semibold px-5 py-2 rounded-lg shadow-md'>Show All</Link>
+
+      <DiscoverSection></DiscoverSection>
     </div >
   );
 };
